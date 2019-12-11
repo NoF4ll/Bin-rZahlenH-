@@ -10,27 +10,26 @@ public class Rechner extends BinaryException {
 		System.out.println("Bitte gib eine Dualzahl ein!");
 		
 		int binZahl = eingabe.nextInt();
-		int anzahlVerschiebung=0;
-		int dezZahl=0;
-		int restWert=0;
-		
+				
 		String s = Integer.toString(binZahl);
 		char[] a = new char[s.length()];
 		a=s.toCharArray();
 		try
 		{
-			if(a.length<8)
+			if(a.length<8 && a.length>13)
 			{
-				throw new BinaryException("Deine Binärzahl soll länger als 8 Zeichen lang sein!");
+				throw new BinaryException("Deine Binärzahl soll länger als 8 Zeichen lang sein und kürzer als 13 sein!");
 			}
 			for(int i = 0 ; i<a.length; i++)
 			{
 				if(a[i] == '0'  || a[i] == '1') {continue; }
 				throw new BinaryException("Keine gültige Binärzahl");
 			}
-			byte b=(byte)binZahl;
-			int j=(int)b;
-			System.out.println("parseInt:"+j);
+			
+			int anzahlVerschiebung=0;
+			int dezZahl=0;
+			int restWert=0;
+			//In Dezimalzahl umwandeln!
 			while (binZahl !=0){
 				restWert=binZahl % 10;
 				dezZahl = dezZahl+(int)(restWert*(Math.pow(2, anzahlVerschiebung)));	
