@@ -16,7 +16,7 @@ public class Rechner extends BinaryException {
 		a=s.toCharArray();
 		try
 		{
-			if(a.length<8 && a.length>13)
+			if(a.length<8 || a.length>13)
 			{
 				throw new BinaryException("Deine Binärzahl soll länger als 8 Zeichen lang sein und kürzer als 13 sein!");
 			}
